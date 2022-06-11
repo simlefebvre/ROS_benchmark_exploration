@@ -78,9 +78,9 @@ if __name__ == '__main__':
     init()
     with open("/home/simon/Documents/RO51/mini-project/mesure/src/Mesure/Data/distance.csv", "w") as f, open("/home/simon/Documents/RO51/mini-project/mesure/src/Mesure/Data/surface.csv", "w") as f2:
         while not rospy.is_shutdown():
-            f.write(f"{time.time()},{somme}\n")
+            f.write(f"{rospy.Time.now().to_sec()},{somme}\n")
             if hasNewSurface:
-                f2.write(f"{time.time()},{surfaceTotal}\n")
+                f2.write(f"{rospy.Time.now().to_sec()},{surfaceTotal}\n")
                 hasNewSurface = False
             surfaceTotal = 0
             sleep(nbSecFreq)
